@@ -2,9 +2,10 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import CardList from './card-list/CardList';
-import { MeetupList } from './types/meetup-list';
+import { User } from './types/user';
 
-const meetupList: MeetupList = {
+const user: User = {
+  age: 25,
   meetups: [
   ]
 };
@@ -13,7 +14,7 @@ function App() {
   return (
     <div className="App">
       <CardList
-        meetupList={meetupList}
+        user={user}
       />
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />

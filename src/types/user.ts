@@ -1,6 +1,7 @@
 import { Meetup } from "./meetup";
 
-export interface MeetupList {
+export interface User {
 
     meetups: Meetup[];
+    age: number;
 }

@@ -9,6 +9,8 @@ const Card: FC<{meetup: Meetup}> = ({meetup}): JSX.Element => {
     return (
         <div className='Card'>
             {meetup.person.name}
+            <br />
+            {meetup.person.age}
         </div>
     );
 }

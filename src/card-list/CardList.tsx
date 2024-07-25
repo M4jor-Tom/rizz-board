@@ -1,12 +1,12 @@
 import { FC } from 'react';
 import { Meetup } from '../types/meetup';
-import { MeetupList } from '../types/meetup-list';
+import { User } from '../types/user';
 import './CardList.css';
 import Card from './card/Card';
 
-const CardList: FC<{meetupList: MeetupList}> = ({meetupList}): JSX.Element => {
+const CardList: FC<{user: User}> = ({user}): JSX.Element => {
 
-    const cards = meetupList.meetups.map((meetup: Meetup) => {
+    const cards = user.meetups.map((meetup: Meetup) => {
 
         return (
             <Card
