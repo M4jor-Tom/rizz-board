@@ -1,11 +1,19 @@
+import { FC } from 'react';
+import { Meetup } from '../types/meetup';
+import { MeetupList } from '../types/meetup-list';
 import './CardList.css';
 import Card from './card/Card';
 
-function CardList() {
+const CardList: FC<{meetupList: MeetupList}> = ({meetupList}): JSX.Element => {
 
-    let cards = (
-        <Card />
-    );
+    const cards = meetupList.meetups.map((meetup: Meetup) => {
+
+        return (
+            <Card
+                meetup={meetup}
+            />
+        );
+    });
 
     return (
         <div className='CardList'>
