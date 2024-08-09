@@ -1,16 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import CardList from './card-list/CardList';
 import { User } from './types/user';
-
-const user: User = {
-  age: 25,
-  meetups: [
-  ]
-};
+import { fetchUsers } from './hooks/user-hook';
 
 function App() {
+
+  const [user, setUser] = useState<User>();
+
+  useEffect(() => {
+    fetchUsers().then((data) => setUser(data));
+  }, []);
+
   return (
     <div className="App">
       <CardList
