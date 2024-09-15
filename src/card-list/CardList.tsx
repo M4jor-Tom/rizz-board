@@ -6,7 +6,7 @@ import Card from './card/Card';
 
 const CardList: FC<{user: User | undefined}> = ({user}): JSX.Element => {
 
-    const cards: JSX.Element[] | undefined = user?.meetups.map((meetup: Meetup) => {
+    const cards: JSX.Element[] | undefined = user?.meetups?.map((meetup: Meetup) => {
 
         return (
             <Card
