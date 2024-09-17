@@ -11,26 +11,28 @@ export async function fetchUsers(): Promise<User> {
 }
 
 export const useWebSocket = (url: string) => {
-    const [ws, setWs] = useState<WebSocket | null>(null);
+    
+    // const [ws, setWs] = useState<WebSocket | null>(null);
     const [user, setUser] = useState<User | undefined>(undefined);
 
     useEffect(() => {
 
         // Initialiser une nouvelle connexion WebSocket
         const websocket = new WebSocket(url);
-        setWs(websocket);
+        // setWs(websocket);
 
         // Fonction pour gérer les messages entrants
         websocket.onmessage = (event) => {
-            const user = JSON.parse(event.data) as User;
-            setUser(user);
+            setUser(JSON.parse(event.data) as User);
         };
         
         websocket.onerror = (event) => {
+
             console.error("WebSocket error:", event);
         };
         
         websocket.onclose = (event) => {
+
             console.log("WebSocket connection closed:", event);
         };
 
