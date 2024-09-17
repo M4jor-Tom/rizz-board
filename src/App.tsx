@@ -24,6 +24,10 @@ function App() {
   } else if(user.meetups === undefined) {
 
     return (<div>Error: no meetups !</div>);
+    
+  } else if(user.age === undefined) {
+
+    return (<div>Error: no age !</div>);
   }
 
   return (
