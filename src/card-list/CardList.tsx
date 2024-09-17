@@ -4,9 +4,9 @@ import { User } from '../types/user';
 import './CardList.css';
 import Card from './card/Card';
 
-const CardList: FC<{user: User | undefined}> = ({user}): JSX.Element => {
+const CardList: FC<{user: User}> = ({user}): JSX.Element => {
 
-    const cards: JSX.Element[] | undefined = user?.meetups?.map((meetup: Meetup) => {
+    const cards: JSX.Element[] = user.meetups.map((meetup: Meetup) => {
 
         return (
             <Card

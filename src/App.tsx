@@ -15,7 +15,16 @@ function App() {
   const user: User | undefined = useWebSocket("ws://localhost:8080");
 
   // Works
-  console.log(user);
+  console.log("Render: ", user);
+
+  if(user === undefined) {
+
+    return (<div>Loading...</div>);
+
+  } else if(user.meetups === undefined) {
+
+    return (<div>Error: no meetups !</div>);
+  }
 
   return (
     <div className="App">
