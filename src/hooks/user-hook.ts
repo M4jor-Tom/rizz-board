@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import { User } from "../types/user";
 
 export async function fetchUsers(): Promise<User> {
@@ -11,9 +11,9 @@ export async function fetchUsers(): Promise<User> {
 }
 
 export const useWebSocket = (url: string) => {
-    
+
     // const [ws, setWs] = useState<WebSocket | null>(null);
-    const [user, setUser] = useState<User | undefined>(undefined);
+    const [user, setUser] = useState<{user: User} | undefined>(undefined);
 
     useEffect(() => {
 
@@ -23,7 +23,7 @@ export const useWebSocket = (url: string) => {
 
         // Fonction pour gérer les messages entrants
         websocket.onmessage = (event) => {
-            setUser(JSON.parse(event.data) as User);
+            setUser(JSON.parse(event.data) as {user: User});
         };
         
         websocket.onerror = (event) => {
@@ -55,5 +55,5 @@ export const useWebSocket = (url: string) => {
     //     [ws]
     // );
 
-  return user;
+  return user?.user;
 }
