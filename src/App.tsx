@@ -1,6 +1,7 @@
 // @ts-nocheck
 import './App.css';
 import CardList from './card-list/CardList';
+import { MeetupsMap } from './meetups-map/MeetupsMap'
 import { User } from './types/user';
 import { useWebSocket } from './hooks/user-hook';
 
@@ -15,9 +16,8 @@ function App() {
 
   return (
     <div className="App">
-      <CardList
-        user={user}
-      />
+      <MeetupsMap user={user} />
+      <CardList user={user} />
     </div>
   );
 }
